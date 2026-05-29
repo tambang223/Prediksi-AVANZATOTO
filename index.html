@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBFS Generator Casino Gold</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+
+    background:
+    linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#ffd700;
+}
+
+.container{
+    width:420px;
+    max-width:95%;
+
+    background:rgba(20,20,20,.85);
+
+    border:2px solid #ffd700;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:
+    0 0 20px #ffd700,
+    0 0 40px rgba(255,215,0,.4);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#ffd700;
+    text-shadow:0 0 10px #ffd700;
+}
+
+.generateBtn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(#fff0a0,#ffd700,#c99700);
+    color:#000;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.generateBtn:hover{
+    transform:scale(1.03);
+}
+
+.card{
+    background:rgba(0,0,0,.45);
+    border:1px solid #ffd700;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.title{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.copyBtn{
+    background:#ffd700;
+    color:#000;
+    border:none;
+    padding:8px 15px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.value{
+    font-size:24px;
+    color:white;
+    line-height:1.7;
+    word-spacing:8px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:15px;
+    color:#ffd700;
+    font-size:14px;
+    letter-spacing:3px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎰 BBFS GENERATOR 🎰</h1>
+
+<button class="generateBtn" onclick="generate()">
+GENERATE ANGKA
+</button>
+
+<div class="card">
+    <div class="top">
+        <div class="title">BBFS</div>
+        <button class="copyBtn" onclick="copyText('bbfs',this)">COPY</button>
+    </div>
+    <div class="value" id="bbfs">-</div>
+</div>
+
+<div class="card">
+    <div class="top">
+        <div class="title">2D</div>
+        <button class="copyBtn" onclick="copyText('duaD',this)">COPY</button>
+    </div>
+    <div class="value" id="duaD">-</div>
+</div>
+
+<div class="card">
+    <div class="top">
+        <div class="title">3D</div>
+        <button class="copyBtn" onclick="copyText('tigaD',this)">COPY</button>
+    </div>
+    <div class="value" id="tigaD">-</div>
+</div>
+
+<div class="card">
+    <div class="top">
+        <div class="title">ANGKA MAIN</div>
+        <button class="copyBtn" onclick="copyText('main',this)">COPY</button>
+    </div>
+    <div class="value" id="main">-</div>
+</div>
+
+<div class="card">
+    <div class="top">
+        <div class="title">SHIO</div>
+        <button class="copyBtn" onclick="copyText('shio',this)">COPY</button>
+    </div>
+    <div class="value" id="shio">-</div>
+</div>
+
+<div class="footer">
+★ KUSUMA CASINO GOLD ★
+</div>
+
+</div>
+
+<script>
+
+function generate(){
+
+    let angka=[];
+
+    while(angka.length<5){
+
+        let r=Math.floor(Math.random()*10);
+
+        if(!angka.includes(r)){
+            angka.push(r);
+        }
+    }
+
+    let bbfs=angka.join(' ');
+
+    let duaD=[
+        `${angka[0]}${angka[1]}`,
+        `${angka[2]}${angka[3]}`,
+        `${angka[4]}${angka[0]}`,
+        `${angka[1]}${angka[2]}`,
+        `${angka[3]}${angka[4]}`
+    ].join(' ');
+
+    let tigaD=[
+        `${angka[0]}${angka[1]}${angka[2]}`,
+        `${angka[3]}${angka[4]}${angka[0]}`,
+        `${angka[1]}${angka[2]}${angka[3]}`,
+        `${angka[4]}${angka[0]}${angka[1]}`,
+        `${angka[2]}${angka[3]}${angka[4]}`
+    ].join(' ');
+
+    let main=[
+        angka[3],
+        angka[1],
+        angka[4],
+        angka[2]
+    ].join(' ');
+
+    let shioAngka=`${angka[0]}${angka[1]}`;
+
+    let shio='-';
+
+    const dataShio={
+        "KUDA":["01","13","25","37","49","61","73","85","97"],
+        "ULAR":["02","14","26","38","50","62","74","86","98"],
+        "NAGA":["03","15","27","39","51","63","75","87","99"],
+        "KELINCI":["04","16","28","40","52","64","76","88","00"],
+        "HARIMAU":["05","17","29","41","53","65","77","89"],
+        "KERBAU":["06","18","30","42","54","66","78","90"],
+        "TIKUS":["07","19","31","43","55","67","79","91"],
+        "BABI":["08","20","32","44","56","68","80","92"],
+        "ANJING":["09","21","33","45","57","69","81","93"],
+        "AYAM":["10","22","34","46","58","70","82","94"],
+        "MONYET":["11","23","35","47","59","71","83","95"],
+        "KAMBING":["12","24","36","48","60","72","84","96"]
+    };
+
+    for(let nama in dataShio){
+        if(dataShio[nama].includes(shioAngka)){
+            shio=nama;
+            break;
+        }
+    }
+
+    document.getElementById('bbfs').innerText=bbfs;
+    document.getElementById('duaD').innerText=duaD;
+    document.getElementById('tigaD').innerText=tigaD;
+    document.getElementById('main').innerText=main;
+    document.getElementById('shio').innerText=shio;
+}
+
+function copyText(id,btn){
+
+    let text=document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(text);
+
+    let old=btn.innerText;
+
+    btn.innerText='COPIED';
+
+    setTimeout(()=>{
+        btn.innerText=old;
+    },1000);
+}
+
+generate();
+
+</script>
+
+</body>
+</html>
